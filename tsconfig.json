@@ -1,0 +1,33 @@
+{
+  "include": ["src", "types"],
+  "compilerOptions": {
+    "incremental": true,
+    "target": "es2018",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "lib": ["esnext"],
+
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "importHelpers": true,
+    "resolveJsonModule": true,
+    "sourceMap": true,
+    "declaration": true,
+
+    "suppressImplicitAnyIndexErrors": true,
+    "noImplicitAny": false, // haven't worked out all the correct types yet
+    "noImplicitThis": true,
+    "alwaysStrict": true,
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "skipLibCheck": true,
+
+    "allowJs": true,
+
+    "strict": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "downlevelIteration": true,
+    "baseUrl": "./",
+  }
+}

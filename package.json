@@ -1,0 +1,78 @@
+{
+  "version": "0.1.0",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "concurrently --kill-others --names 'api,dev' --prefix-colors 'blue,yellow' 'yarn api' 'yarn dev'",
+    "dev": "nodemon -e ts,js,graphql,yml,yaml --watch .env --watch . --exec node -r dotenv/config node_modules/.bin/graphql-mesh dev",
+    "serve": "node -r dotenv/config node_modules/.bin/graphql-mesh start",
+    "api": "node server.js",
+    "format": "prettier --no-color --loglevel warn --write '{src,test}/**/*.{js,jsx,ts,tsx,json}'",
+    "lint": "eslint src",
+    "ts": "TS_NODE_PROJECT=./tsconfig.ts-node.json ts-node"
+  },
+  "prettier": {
+    "printWidth": 120,
+    "semi": false,
+    "singleQuote": true
+  },
+  "importSort": {
+    ".ts, .tsx": {
+      "style": "module",
+      "parser": "typescript"
+    },
+    ".js, .jsx": {
+      "style": "module"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "prettier --no-color --write",
+      "yarn lint"
+    ],
+    "*.{css,scss,graphql}": [
+      "prettier --no-color --write"
+    ]
+  },
+  "name": "graphql-schema-stitching",
+  "author": "Guy Gascoigne-Piggford",
+  "dependencies": {
+    "@graphql-mesh/cli": "^0.32.1",
+    "@graphql-mesh/graphql": "^0.18.0",
+    "@graphql-mesh/openapi": "^0.18.0",
+    "@graphql-mesh/transform-encapsulate": "^0.1.48",
+    "@graphql-mesh/transform-filter-schema": "^0.10.18",
+    "@graphql-mesh/transform-naming-convention": "^0.6.50",
+    "@graphql-mesh/transform-prefix": "^0.6.49",
+    "@graphql-mesh/transform-rename": "^0.8.20",
+    "concurrently": "^6.2.0",
+    "debug": "^4.3.2",
+    "dotenv": "^10.0.0",
+    "graphql": "^15.5.1",
+    "graphql-tag": "^2.12.5",
+    "json-server": "^0.16.3",
+    "node-fetch": "^2.6.1"
+  },
+  "devDependencies": {
+    "@types/debug": "^4.1.6",
+    "@types/eslint": "^7.28.0",
+    "@types/eslint-plugin-prettier": "^3.1.0",
+    "@types/node": "^16.3.3",
+    "@types/node-fetch": "^2.5.11",
+    "@types/prettier": "^2.3.2",
+    "@typescript-eslint/eslint-plugin": "^4.28.4",
+    "@typescript-eslint/parser": "^4.28.4",
+    "eslint": "^7.31.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-etc": "^1.5.4",
+    "husky": "^7.0.1",
+    "import-sort-style-module": "^6.0.0",
+    "lint-staged": "^11.0.1",
+    "nodemon": "^2.0.12",
+    "prettier": "^2.3.2",
+    "prettier-plugin-import-sort": "^0.0.7",
+    "ts-node": "^10.1.0",
+    "typescript": "^4.3.5",
+    "typesync": "^0.8.0"
+  }
+}

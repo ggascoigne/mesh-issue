@@ -1,0 +1,56 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "url": "http://localhost:5000/users/895cc09b6794",
+      "username": "895cc09b6794",
+      "first_name": "Customer",
+      "last_name": "Admin",
+      "email": "customerAdmin@dummy.com",
+      "is_active": true,
+      "roles": [
+        "http://localhost:5000/roles/CustomerAdmin"
+      ],
+      "customer": 39,
+      "marketing_consent": false,
+      "eula_accepted_date": "2020-06-12T03:36:23.430000Z",
+      "date_joined": "2018-11-16T19:11:56.885177Z",
+      "state": "EXTERNAL",
+      "federated_identity_provider": "http://localhost:5000/federations/235",
+      "federation_exempt": false,
+      "effective_roles": ["CustomerAdmin"],
+      "groups": [
+        "http://localhost:5000/groups/0f4c314f1bd3"
+      ]
+    },
+    {
+      "url": "http://localhost:5000/users/29b51b82a593",
+      "username": "29b51b82a593",
+      "first_name": "QA",
+      "last_name": "TestCustomer",
+      "email": "customer@tripwire.com",
+      "is_active": true,
+      "roles": [
+        "http://localhost:5000/roles/FakeUser"
+      ],
+      "customer": 39,
+      "marketing_consent": false,
+      "eula_accepted_date": "2020-06-08T22:45:09.956000Z",
+      "date_joined": "2018-11-16T19:12:11.610163Z",
+      "state": "EXTERNAL",
+      "federated_identity_provider": "http://localhost:5000/federations/235",
+      "federation_exempt": false,
+      "effective_roles": ["FakeUser"],
+      "groups": []
+    }
+  ],
+  "customers": [
+    {
+      "id": 39,
+      "url": "http://localhost:5000/customers/39",
+      "name": "Belisarius",
+      "partner": "http://localhost:5000/partners/1",
+      "tenant_id": "9617ddd9284a"
+    }
+  ]
+}

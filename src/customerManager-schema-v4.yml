@@ -1,0 +1,518 @@
+openapi: 3.0.2
+info:
+  title: ''
+  version: ''
+paths:
+  /customers/:
+    get:
+      operationId: listCustomers
+      description: ''
+      parameters:
+        - name: limit
+          required: false
+          in: query
+          description: Number of results to return per page.
+          schema:
+            type: integer
+        - name: offset
+          required: false
+          in: query
+          description: The initial index from which to return the results.
+          schema:
+            type: integer
+        - name: name
+          required: false
+          in: query
+          description: name
+          schema:
+            type: string
+        - name: name__iexact
+          required: false
+          in: query
+          description: name__iexact
+          schema:
+            type: string
+        - name: name__icontains
+          required: false
+          in: query
+          description: name__icontains
+          schema:
+            type: string
+        - name: tenant_id
+          required: false
+          in: query
+          description: tenant_id
+          schema:
+            type: string
+        - name: id
+          required: false
+          in: query
+          description: id
+          schema:
+            type: string
+        - name: id__iexact
+          required: false
+          in: query
+          description: id__iexact
+          schema:
+            type: string
+        - name: id__icontains
+          required: false
+          in: query
+          description: id__icontains
+          schema:
+            type: string
+        - name: partner
+          required: false
+          in: query
+          description: partner
+          schema:
+            type: string
+        - name: ordering
+          required: false
+          in: query
+          description: Which field to use when ordering the results.
+          schema:
+            type: string
+        - name: search
+          required: false
+          in: query
+          description: A search term.
+          schema:
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 123
+                  next:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?offset=400&limit=100
+                  previous:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?offset=200&limit=100
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Customer'
+          description: ''
+      tags:
+        - '{version}'
+    post:
+      operationId: createCustomer
+      description: ''
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Customer'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Customer'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Customer'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Customer'
+          description: ''
+      tags:
+        - '{version}'
+  /users/:
+    get:
+      operationId: listUsers
+      description: ''
+      parameters:
+        - name: limit
+          required: false
+          in: query
+          description: Number of results to return per page.
+          schema:
+            type: integer
+        - name: offset
+          required: false
+          in: query
+          description: The initial index from which to return the results.
+          schema:
+            type: integer
+        - name: username
+          required: false
+          in: query
+          description: username
+          schema:
+            type: string
+        - name: username__iexact
+          required: false
+          in: query
+          description: username__iexact
+          schema:
+            type: string
+        - name: username__icontains
+          required: false
+          in: query
+          description: username__icontains
+          schema:
+            type: string
+        - name: first_name
+          required: false
+          in: query
+          description: first_name
+          schema:
+            type: string
+        - name: first_name__iexact
+          required: false
+          in: query
+          description: first_name__iexact
+          schema:
+            type: string
+        - name: first_name__icontains
+          required: false
+          in: query
+          description: first_name__icontains
+          schema:
+            type: string
+        - name: last_name
+          required: false
+          in: query
+          description: last_name
+          schema:
+            type: string
+        - name: last_name__iexact
+          required: false
+          in: query
+          description: last_name__iexact
+          schema:
+            type: string
+        - name: last_name__icontains
+          required: false
+          in: query
+          description: last_name__icontains
+          schema:
+            type: string
+        - name: email
+          required: false
+          in: query
+          description: email
+          schema:
+            type: string
+        - name: email__iexact
+          required: false
+          in: query
+          description: email__iexact
+          schema:
+            type: string
+        - name: email__icontains
+          required: false
+          in: query
+          description: email__icontains
+          schema:
+            type: string
+        - name: state
+          required: false
+          in: query
+          description: state
+          schema:
+            type: string
+        - name: state__iexact
+          required: false
+          in: query
+          description: state__iexact
+          schema:
+            type: string
+        - name: state__icontains
+          required: false
+          in: query
+          description: state__icontains
+          schema:
+            type: string
+        - name: id
+          required: false
+          in: query
+          description: id
+          schema:
+            type: string
+        - name: id__iexact
+          required: false
+          in: query
+          description: id__iexact
+          schema:
+            type: string
+        - name: id__icontains
+          required: false
+          in: query
+          description: id__icontains
+          schema:
+            type: string
+        - name: federation_exempt
+          required: false
+          in: query
+          description: federation_exempt
+          schema:
+            type: string
+        - name: federation_exempt__iexact
+          required: false
+          in: query
+          description: federation_exempt__iexact
+          schema:
+            type: string
+        - name: customer
+          required: false
+          in: query
+          description: customer
+          schema:
+            type: string
+        - name: groups
+          required: false
+          in: query
+          description: groups
+          schema:
+            type: string
+        - name: type
+          required: false
+          in: query
+          description: type
+          schema:
+            type: string
+        - name: roles
+          required: false
+          in: query
+          description: roles
+          schema:
+            type: string
+        - name: ordering
+          required: false
+          in: query
+          description: Which field to use when ordering the results.
+          schema:
+            type: string
+        - name: search
+          required: false
+          in: query
+          description: A search term.
+          schema:
+            type: string
+        - name: effective_roles__name
+          in: query
+          required: false
+          description: Filter users based on effective role name.
+          schema:
+            type: string
+        - name: roles__name
+          in: query
+          required: false
+          description: Filter users based on role name.
+          schema:
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 123
+                  next:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?offset=400&limit=100
+                  previous:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?offset=200&limit=100
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/User'
+          description: ''
+      tags:
+        - '{version}'
+    post:
+      operationId: createUser
+      description: ''
+      parameters:
+        - name: effective_roles__name
+          in: query
+          required: false
+          description: Filter users based on effective role name.
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/User'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+          description: ''
+      tags:
+        - '{version}'
+components:
+  schemas:
+    Customer:
+      type: object
+      properties:
+        url:
+          type: string
+          readOnly: true
+        name:
+          type: string
+          maxLength: 255
+        partner:
+          type: string
+        tenant_id:
+          type: string
+          format: uuid
+      required:
+        - name
+    User:
+      type: object
+      properties:
+        url:
+          type: string
+          readOnly: true
+        username:
+          type: string
+          readOnly: true
+        first_name:
+          type: string
+          maxLength: 50
+        last_name:
+          type: string
+          maxLength: 150
+        email:
+          type: string
+          format: email
+          maxLength: 254
+        is_active:
+          type: boolean
+          description:
+            Designates whether this user should be treated as active. Unselect
+            this instead of deleting accounts.
+        roles:
+          type: array
+          items:
+            type: string
+        customer:
+          type: string
+        marketing_consent:
+          type: boolean
+        eula_accepted_date:
+          type: string
+          format: date-time
+          nullable: true
+        date_joined:
+          type: string
+          format: date-time
+        state:
+          type: string
+          readOnly: true
+        federated_identity_provider:
+          type: string
+          nullable: true
+        federation_exempt:
+          type: boolean
+          description:
+            Should this user continue to use Tripwire.io authentication
+            even if a Federated Identiy Provider exists that applies to them
+        effective_roles:
+          type: array
+          items:
+            type: string
+          readOnly: true
+        groups:
+          type: array
+          items:
+            type: string
+      required:
+        - first_name
+        - last_name
+        - email
+        - roles
+        - customer
+    CustomerUsers:
+      type: object
+      properties:
+        url:
+          type: string
+          readOnly: true
+        username:
+          type: string
+          maxLength: 150
+        email:
+          type: string
+          format: email
+          maxLength: 254
+      required:
+        - email
+    UserUpdate:
+      type: object
+      properties:
+        first_name:
+          type: string
+          maxLength: 50
+        last_name:
+          type: string
+          maxLength: 150
+        email:
+          type: string
+          format: email
+          maxLength: 254
+        is_active:
+          type: boolean
+          description:
+            Designates whether this user should be treated as active. Unselect
+            this instead of deleting accounts.
+        roles:
+          type: array
+          items:
+            type: string
+        customer:
+          type: string
+        marketing_consent:
+          type: boolean
+        eula_accepted_date:
+          type: string
+          format: date-time
+          nullable: true
+        federated_identity_provider:
+          type: string
+          nullable: true
+        federation_exempt:
+          type: boolean
+          description:
+            Should this user continue to use Tripwire.io authentication
+            even if a Federated Identiy Provider exists that applies to them
+        groups:
+          type: array
+          items:
+            type: string
+      required:
+        - email
+        - roles
+        - customer

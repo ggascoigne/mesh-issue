@@ -1,0 +1,23 @@
+require:
+  - ts-node/register/transpile-only
+
+serve:
+  cors:
+    origin: "*"
+  browser: false
+
+sources:
+  - name: customerManager
+    handler:
+      openapi:
+        baseUrl: http://localhost:5000
+        source: ./src/customerManager-schema-v4.yml
+
+additionalTypeDefs: |
+  extend type Customer {
+    id: String
+    users: [User]
+  }
+
+additionalResolvers:
+   - ./src/customer-manager-resolver.ts
